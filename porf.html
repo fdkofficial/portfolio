@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fardeen Khan - Full Stack Developer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --text: #1f2937;
+            --light: #f3f4f6;
+            --accent: #dbeafe;
+        }
+        nav {
+            background-color: white;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: fadeDown 1s ease-out;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeDown 1s ease-out;
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--primary);
+            animation: fadeIn 1s ease-out;
+        }
+
+        .profile-info {
+            flex: 1;
+            max-width: 500px;
+            animation: fadeRight 1s ease-out;
+        }
+
+        .skills-section {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeUp 1s ease-out;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .skill-item {
+            background-color: var(--accent);
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .projects-section {
+            animation: fadeUp 1.2s ease-out;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .project-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-section {
+            text-align: center;
+            margin-top: 3rem;
+            animation: fadeUp 1.4s ease-out;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--primary);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeDown {
+            from { 
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeRight {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary);
+        }
+
+        h1, h2, h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+  <nav>
+        <div class="nav-links">
+            <a href="/index.html">Personal Life</a>
+            <a style="color: purple;" href="#prefessional">Professional Life</a>
+        </div>
+    </nav>
+    <div class="container">
+        <header>
+            <h1>Md Fardeen Shamim Khan</h1>
+            <p>Senior Software Developer</p>
+        </header>
+
+        <section class="profile-section">
+            <div class="profile-image">
+                <img src="images/profile.PNG" alt="" style="width: 112%;border-radius: 50px;">
+            </div>
+            <div class="profile-info">
+                <p>Full Stack Developer with 4+ years of experience in Python, Django, Vue.js, and server management. Currently working at NadaaIT, Riyadh Saudi Arabia.</p>
+                <a href="#contact" class="btn">Contact Me</a>
+            </div>
+        </section>
+
+        <section class="skills-section">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">Python</div>
+                <div class="skill-item">Django</div>
+                <div class="skill-item">Vue.js</div>
+                <div class="skill-item">Node.js</div>
+                <div class="skill-item">PostgreSQL</div>
+                <div class="skill-item">MySQL</div>
+                <div class="skill-item">Linux</div>
+                <div class="skill-item">REST API</div>
+            </div>
+        </section>
+
+        <section class="projects-section">
+            <h2>Featured Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>EazyApp</h3>
+                    <p>A full-stack web application built with Django and PostgreSQL</p>
+                    <a href="https://geteazyapp.com" target="_blank" class="btn">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h3>HIS</h3>
+                    <p>Health Insurance System with electronic medical records and billing</p>
+                    <a href="http://95.177.178.96/rc-eligibility" target="_blank" class="btn">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h3>PACS System</h3>
+                    <p>Radiology-based system for capturing and viewing medical images</p>
+                    <a href="http://95.177.178.96:66/#/" target="_blank" class="btn">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h3>Vito</h3>
+                    <p>The Software is a Job searching and Vacancy details web application</p>
+                    <a href="" target="_blank" class="btn">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h3>Hs Solutions</h3>
+                    <p>An E-commerce platform for shoping daily life electronics</p>
+                    <a href="https://hstotalsolutions.in/" target="_blank" class="btn">View Project</a>
+                    
+                </div>
+                <div class="project-card">
+                    <h3>Investment Plannet</h3>
+                    <p> Investment Advisor work continuously on Training and updating staff and Executives, adopting new technology and improving infrastructure</p>
+                    <a href="https://www.investmentplanets.com/" target="_blank" class="btn">View Project</a>
+                </div>
+                
+                
+            </div>
+        </section>
+
+        <section class="contact-section" id="contact">
+            <h2>Get In Touch</h2>
+            <div class="social-links">
+                <a href="https://github.com/fdkofficial" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://instagram.com/fdkofficial"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:khanfardeen688@gmail.comm"><i class="fas fa-envelope"></i></a>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

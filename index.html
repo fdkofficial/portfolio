@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fardeen Khan - Life & Work</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --text: #1f2937;
+            --light: #f3f4f6;
+            --accent: #dbeafe;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        nav {
+            background-color: white;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: fadeDown 1s ease-out;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        header {
+            text-align: center;
+            margin: 4rem 0;
+            animation: fadeDown 1s ease-out;
+        }
+
+        .hero-section {
+            position: relative;
+            height: 60vh;
+            background: linear-gradient(rgba(37,99,235,0.8), rgba(30,64,175,0.8));
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            margin-bottom: 4rem;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 1;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/api/placeholder/1200/800') center/cover;
+            opacity: 0.3;
+        }
+
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
+            animation: fadeUp 1s ease-out;
+        }
+
+        .about-text {
+            padding: 2rem;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .gallery-section {
+            margin-bottom: 4rem;
+            animation: fadeUp 1.2s ease-out;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            aspect-ratio: 0;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 0.5rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        .interests-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            margin-bottom: 4rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            animation: fadeUp 1.4s ease-out;
+        }
+
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .interest-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--accent);
+            border-radius: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .interest-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .interest-card i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Keeping previous styles for skills, projects, etc. */
+        .skills-section, .projects-section, .contact-section {
+            margin-bottom: 4rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeDown {
+            from { 
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary);
+        }
+
+        .quote-section {
+            text-align: center;
+            padding: 4rem 0;
+            background: var(--accent);
+            margin: -2rem -2rem 4rem -2rem;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .quote-text {
+            font-size: 1.5rem;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background: var(--secondary);
+            color: white;
+            margin: 4rem -2rem -2rem -2rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-links">
+            <a style="color: purple;" href="#personal">Personal Life</a>
+            <a href="/porf.html">Professional Life</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="hero-section">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <h1>Md Fardeen Shamim Khan</h1>
+                <p>Developer • Team Leader • Life Explorer</p>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>Hello! I'm a passionate Full Stack Developer based in Riyadh. Beyond coding, I find joy in singing and exploring new technologies. I believe in the perfect blend of professional excellence and personal growth.</p>
+                <p>Born on May 7, 2000, I've always been fascinated by technology and its power to transform lives. When I'm not coding, you'll find me either watching animes or diving into a good book.</p>
+            </div>
+            <div class="about-text">
+                <h2>Life Philosophy</h2>
+                <p>I believe in continuous learning and personal growth. My journey from Mumbai to Riyadh has taught me the value of adaptability and cultural understanding. I bring this same approach to both my professional work and personal projects.</p>
+            </div>
+        </section>
+
+        <section id="gallery" class="gallery-section">
+            <h2>Life in Frames</h2>
+            <div class="gallery-grid">
+                <!-- Using placeholder images - replace src with actual images -->
+                <div class="gallery-item">
+                    <img src="images/office_bl.JPG" alt="Work Life">
+                    <div class="gallery-caption">Coding Session</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/music.JPG" alt="Music">
+                    <div class="gallery-caption">Music Time</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/1.png" alt="Travel">
+                    <div class="gallery-caption">Exploring Riyadh</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/read.jpg" alt="Friends">
+                    <div class="gallery-caption">Photography</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/family.JPG" alt="Hobbies">
+                    <div class="gallery-caption">Family Time</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/profile.PNG" alt="Nature">
+                    <div class="gallery-caption">Special occasions</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/city.JPG" alt="Nature">
+                    <div class="gallery-caption">City Walks</div>
+                </div>
+                
+            </div>
+        </section>
+
+        <section id="interests" class="interests-section">
+            <h2>Personal Interests</h2>
+            <div class="interests-grid">
+                <div class="interest-card">
+                    <i class="fas fa-music"></i>
+                    <h3>Cinemaphile</h3>
+                    <p>Love to watch shows and movies</p>
+                </div>
+                <div class="interest-card">
+                    <i class="fas fa-book"></i>
+                    <h3>Reading</h3>
+                    <p>Love exploring new worlds through books</p>
+                </div>
+                <div class="interest-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Coding</h3>
+                    <p>Building solutions through technology</p>
+                </div>
+                <div class="interest-card">
+                    <i class="fas fa-plane"></i>
+                    <h3>Travel</h3>
+                    <p>Exploring new places and cultures</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="quote-section">
+            <p class="quote-text">"Striving to create a perfect harmony between technology and creativity"</p>
+        </div>
+
+        <!-- Previous sections (skills, projects, contact) remain the same -->
+        <!-- ... -->
+
+        <footer>
+            <p>© 2025 Md Fardeen Shamim Khan. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
