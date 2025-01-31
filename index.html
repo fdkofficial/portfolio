@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fardeen Khan - Life & Work</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
+        <style>
         :root {
             --primary: #2563eb;
             --secondary: #1e40af;
@@ -21,16 +21,22 @@
             font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: var(--light);
             color: var(--text);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         .container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 1rem;
         }
 
         nav {
@@ -47,6 +53,7 @@
             display: flex;
             justify-content: center;
             gap: 2rem;
+            flex-wrap: wrap;
         }
 
         .nav-links a {
@@ -54,6 +61,11 @@
             color: var(--text);
             font-weight: 500;
             transition: color 0.3s ease;
+            padding: 0.5rem;
+        }
+
+        .nav-links a[style*="purple"] {
+            color: purple !important;
         }
 
         .nav-links a:hover {
@@ -62,13 +74,14 @@
 
         header {
             text-align: center;
-            margin: 4rem 0;
+            margin: 2rem 0;
             animation: fadeDown 1s ease-out;
         }
 
         .hero-section {
             position: relative;
             height: 60vh;
+            min-height: 400px;
             background: linear-gradient(rgba(37,99,235,0.8), rgba(30,64,175,0.8));
             border-radius: 1rem;
             display: flex;
@@ -76,13 +89,23 @@
             justify-content: center;
             color: white;
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 2rem;
             overflow: hidden;
+            padding: 1rem;
         }
 
         .hero-content {
             z-index: 1;
             animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 3vw, 1.25rem);
         }
 
         .hero-bg {
@@ -91,54 +114,60 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('/api/placeholder/1200/800') center/cover;
+            background: url('./images/profile.PNG') center/cover;
             opacity: 0.3;
         }
 
         .about-section {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-bottom: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
             animation: fadeUp 1s ease-out;
         }
 
         .about-text {
-            padding: 2rem;
+            padding: 1.5rem;
             background: white;
             border-radius: 1rem;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .gallery-section {
-            margin-bottom: 4rem;
+            margin-bottom: 2rem;
             animation: fadeUp 1.2s ease-out;
         }
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
         }
 
         .gallery-item {
             position: relative;
-            border-radius: 1rem;
+            border-radius: 0.5rem;
             overflow: hidden;
             aspect-ratio: 0;
             cursor: pointer;
             transition: transform 0.3s ease;
+            background: var(--accent);
         }
 
         .gallery-item:hover {
-            transform: scale(1.05);
+            transform: scale(1.02);
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
         }
 
         .gallery-caption {
@@ -159,9 +188,9 @@
 
         .interests-section {
             background: white;
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 1rem;
-            margin-bottom: 4rem;
+            margin-bottom: 2rem;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             animation: fadeUp 1.4s ease-out;
         }
@@ -169,8 +198,8 @@
         .interests-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            gap: 1rem;
+            margin-top: 1.5rem;
         }
 
         .interest-card {
@@ -191,9 +220,76 @@
             margin-bottom: 1rem;
         }
 
-        /* Keeping previous styles for skills, projects, etc. */
-        .skills-section, .projects-section, .contact-section {
-            margin-bottom: 4rem;
+        .quote-section {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: var(--accent);
+            margin: -1rem -1rem 2rem -1rem;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .quote-text {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: var(--secondary);
+            color: white;
+            margin: 2rem -1rem -1rem -1rem;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-item {
+  
+            aspect-ratio: 1;
+        }
+            .container {
+                padding: 0.5rem;
+            }
+
+            .hero-section {
+                height: 50vh;
+            }
+
+            .about-section {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+
+            .interests-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav-links a {
+                font-size: 0.9rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .interests-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quote-text {
+                font-size: 1.1rem;
+            }
         }
 
         @keyframes fadeIn {
@@ -223,41 +319,11 @@
             }
         }
 
-        .btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background-color: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 0.5rem;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn:hover {
-            background-color: var(--secondary);
-        }
-
-        .quote-section {
-            text-align: center;
-            padding: 4rem 0;
-            background: var(--accent);
-            margin: -2rem -2rem 4rem -2rem;
-            animation: fadeIn 1.5s ease-out;
-        }
-
-        .quote-text {
-            font-size: 1.5rem;
-            font-style: italic;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem 0;
-            background: var(--secondary);
-            color: white;
-            margin: 4rem -2rem -2rem -2rem;
+        /* Responsive image loading optimization */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
         }
     </style>
 </head>
@@ -295,31 +361,31 @@
             <div class="gallery-grid">
                 <!-- Using placeholder images - replace src with actual images -->
                 <div class="gallery-item">
-                    <img src="./images/office_bl.JPG" alt="Work Life">
+                    <a href="./images/office_bl.JPG"><img src="./images/office_bl.JPG" alt="Work Life"></a>
                     <div class="gallery-caption">Coding Session</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="./images/music.JPG" alt="Music">
+                    <a href="./images/music.JPG"><img src="./images/music.JPG" alt="Music"></a>
                     <div class="gallery-caption">Music Time</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="./images/1.png" alt="Travel">
+                    <a href="./images/1.png"><img src="./images/1.png" alt="Travel"></a>
                     <div class="gallery-caption">Exploring Riyadh</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="./images/read.jpg" alt="Friends">
+                    <a href="./images/read.jpg"><img src="./images/read.jpg" alt="Friends"></a>
                     <div class="gallery-caption">Photography</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="./images/family.JPG" alt="Hobbies">
+                    <a href="./images/family.JPG"><img src="./images/family.JPG" alt="Hobbies"></a>
                     <div class="gallery-caption">Family Time</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="./images/profile.PNG" alt="Nature">
+                    <a href="./images/profile.PNG"><img src="./images/profile.PNG" alt="Nature"></a>
                     <div class="gallery-caption">Special occasions</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="./images/city.JPG" alt="Nature">
+                    <a href="./images/city.JPG"><img src="./images/city.JPG" alt="Nature"></a>
                     <div class="gallery-caption">City Walks</div>
                 </div>
                 
